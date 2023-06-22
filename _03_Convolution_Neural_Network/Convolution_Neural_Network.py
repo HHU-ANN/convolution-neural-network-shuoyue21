@@ -120,5 +120,10 @@ def main():
     model = NeuralNetwork()  # 若有参数则传入参数
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(current_dir)
-    model.load_state_dict(torch.load(parent_dir + "/pth/model.pth"))
+    model.load_state_dict(torch.load(parent_dir + "/pth/model.pth"),map_location='cpu')
+    model = model.to('cpu')  # 将模型加载到CPU设备上
+    
+    # 在这里调用 model.eval() 设置模型为评估模式
+    model.eval()
+    
     return model
