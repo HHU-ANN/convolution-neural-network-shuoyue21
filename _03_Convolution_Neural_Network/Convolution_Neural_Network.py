@@ -125,5 +125,4 @@ def main():
     
     # 在这里调用 model.eval() 设置模型为评估模式
     model.eval()
-    
     return model
